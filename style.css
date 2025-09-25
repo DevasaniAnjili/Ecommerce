@@ -35,3 +35,66 @@ header .logo{
     background-color: black;
     color: white;
 }
+
+
+@media (max-width: 768px) {
+    header {
+        margin: 10px 20px;
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .header-buttons {
+        margin-top: 10px;
+    }
+
+    .header-buttons button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 10px;
+    }
+
+    .logo {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links a {
+        padding: 10px 0;
+        font-size: 16px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .header-buttons {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .header-buttons button {
+        width: 100%;
+        margin: 5px 0;
+    }
+}
