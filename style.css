@@ -161,3 +161,67 @@ header .logo{
     }
 }
 
+.latest-products {
+    text-align: center;
+}
+.latest-products p{
+    font-size: 40px;
+    position: relative;
+}
+
+.latest-products p::after{
+    position: absolute;
+    content: "";
+    width: 85%;
+    height: 1px;
+    background-color: rgb(117, 114, 114);
+    left: 5%;
+    bottom: -5px;
+   
+}
+.products-category-buttons{
+    text-align: center;
+}
+.products-category-buttons button{
+    margin-left: 20px;
+    padding: 4px;
+}
+.products-category-buttons button:hover{
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .latest-products p {
+        font-size: 28px;
+    }
+    .latest-products p::after {
+        width: 70%;
+        left: 15%;
+    }
+    .products-category-buttons button {
+        margin-left: 10px;
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .latest-products p {
+        font-size: 22px;
+    }
+    .latest-products p::after {
+        width: 60%;
+        left: 20%;
+    }
+    .products-category-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .products-category-buttons button {
+        margin-left: 0;
+        width: 80%;
+        margin: 0 auto;
+    }
+}
