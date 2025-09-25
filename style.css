@@ -6,6 +6,8 @@ header{
     justify-content: space-between;
     align-items: center;
     margin: 10px 50px;
+  
+    
 }
 header .logo{
     font-weight: bold;
@@ -20,9 +22,7 @@ header .logo{
     color: black;
 }
 
-.header-buttons{
-    padding-right: 20px;
-}
+
 
 .header-buttons button{
     padding: 10px 15px;
@@ -98,3 +98,66 @@ header .logo{
         margin: 5px 0;
     }
 }
+
+.homepage-pic{
+    background-image: url(./assests/images/main.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 98%;
+    height: 400px;
+    margin: 0px 10px;
+    position: relative;
+}
+.caption {
+    position: absolute;
+    color: white;
+    top: 80px;
+    left: 15px;
+}
+.caption h2{
+    font-size: 50px;
+}
+.caption p{
+    font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    .homepage-pic {
+        height: 300px;
+    }
+
+    .caption {
+        top: 50px;
+        left: 10px;
+    }
+
+    .caption h2 {
+        font-size: 35px;
+    }
+
+    .caption p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .homepage-pic {
+        height: 200px;
+        width: 100%;
+        margin: 0;
+    }
+
+    .caption {
+        top: 30px;
+        left: 8px;
+    }
+
+    .caption h2 {
+        font-size: 24px;
+    }
+
+    .caption p {
+        font-size: 14px;
+    }
+}
+
