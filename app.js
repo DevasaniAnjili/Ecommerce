@@ -1,9 +1,11 @@
 const productsContainer = document.getElementById("products-container");
 const cartCount = document.getElementById("cart-count");
 const cartItemsContainer = document.getElementById("cart-items");
+const cartPage = document.getElementById("cart-page");
+const cartBtn = document.getElementById("cart-btn");
 
 let allProducts = [];
-let cart = {};
+let cart = {}
 
 const fetchProducts = async () => {
     try {
@@ -37,7 +39,7 @@ const displayProducts = (products) => {
     });
 };
 
-fetchProducts();
+
 
 
 
@@ -69,7 +71,11 @@ const updateCartUI = () => {
     });
 
     cartCount.textContent = totalCount;
+
+    
 };
+
+
 
 
 document.querySelector(".products-category-buttons").addEventListener("click", (e) => {
@@ -91,3 +97,7 @@ document.querySelector(".products-category-buttons").addEventListener("click", (
         displayProducts(allProducts.filter(p => p.category === "electronics"));
     }
 });
+
+fetchProducts();
+
+
