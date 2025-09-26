@@ -38,3 +38,56 @@ const displayProducts = (products) => {
 };
 
 fetchProducts();
+
+
+
+const addToCart = (product) => {
+    if (cart[product.id]) {
+        cart[product.id].quantity += 1;
+    } else {
+        cart[product.id] = { ...product, quantity: 1 };
+    }
+    updateCartUI();
+};
+
+const updateCartUI = () => {
+    cartItemsContainer.innerHTML = "";
+    let totalCount = 0;
+    Object.values(cart).forEach((item) => {
+        totalCount += item.quantity;
+
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+            <div style="display:flex;align-items:center;">
+                <img src="${item.image}" alt="${item.title}">
+                <span>${item.title} (x${item.quantity})</span>
+            </div>
+            <span>$ ${(item.price * item.quantity).toFixed(2)}</span>
+        `;
+        cartItemsContainer.appendChild(div);
+    });
+
+    cartCount.textContent = totalCount;
+};
+
+
+document.querySelector(".products-category-buttons").addEventListener("click", (e) => {
+    if (e.target.tagName !== "BUTTON") return; 
+
+    if (e.target.classList.contains("category-all-btn")) {
+        displayProducts(allProducts);
+    } 
+    else if (e.target.classList.contains("category-mens-btn")) {
+        displayProducts(allProducts.filter(p => p.category === "men's clothing"));
+    } 
+    else if (e.target.classList.contains("category-womens-btn")) {
+        displayProducts(allProducts.filter(p => p.category === "women's clothing"));
+    } 
+    else if (e.target.classList.contains("category-jewelery-btn")) {
+        displayProducts(allProducts.filter(p => p.category === "jewelery"));
+    } 
+    else if (e.target.classList.contains("category-electronics-btn")) {
+        displayProducts(allProducts.filter(p => p.category === "electronics"));
+    }
+});
