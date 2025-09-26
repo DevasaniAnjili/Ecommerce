@@ -5,12 +5,20 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10px 50px;
-  
+    margin: 0;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     
 }
 header .logo{
     font-weight: bold;
+    padding-left: 20px;
 }
 .nav-links a {
     padding-left: 10px;
@@ -21,9 +29,9 @@ header .logo{
 .nav-links a:hover{
     color: black;
 }
-
-
-
+.header-buttons{
+    padding-right: 60px;
+}
 .header-buttons button{
     padding: 10px 15px;
     border-radius: 8px ;
@@ -242,6 +250,12 @@ header .logo{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);  
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); 
 }
 
 .product-card img {
