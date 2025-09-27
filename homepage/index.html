@@ -59,11 +59,20 @@
 
     <div id="products-container"></div>
 
-    <div id="cart-page" style="display:none; margin:30px;">
-        <h2>Cart</h2>
-        <div id="cart-items"></div>
-         <div id="cart-total" style="margin-top:20px; font-weight:bold;"></div>
+  <div id="cart-page" style="display:none;">
+    <h2 class="cart-heading">Cart</h2>
+    <div class="cart-layout">
+        <div id="cart-items" class="cart-items"></div>
+        <div id="order-summary" class="order-summary">
+            <h3>Order Summary</h3>
+            <p>Products: $<span id="summary-products">0</span></p>
+            <p>Shipping: $<span id="summary-shipping">30</span></p>
+            <p><strong>Total amount: $<span id="summary-total">0</span></strong></p>
+            <button class="checkout-btn">Go to checkout</button>
+        </div>
     </div>
+  </div>
+
 
 
     <p class="footer-caption">Made with <span>&#10084;&#65039;</span> by Devasani Anjili with the guidance of<strong>AchieversIT</strong></p>

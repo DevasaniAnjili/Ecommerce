@@ -55,25 +55,57 @@ const addToCart = (product) => {
 const updateCartUI = () => {
     cartItemsContainer.innerHTML = "";
     let totalCount = 0;
+    let totalPrice = 0;
+
     Object.values(cart).forEach((item) => {
         totalCount += item.quantity;
+        totalPrice += item.price * item.quantity;
 
         const div = document.createElement("div");
         div.classList.add("cart-item");
+
         div.innerHTML = `
-            <div style="display:flex;align-items:center;">
+            <div class="cart-item-info">
                 <img src="${item.image}" alt="${item.title}">
-                <span>${item.title} (x${item.quantity})</span>
+                <span>${item.title}</span>
+            </div>
+            <div class="cart-item-quantity">
+                <button class="decrease-btn">-</button>
+                <span>${item.quantity}</span>
+                <button class="increase-btn">+</button>
             </div>
             <span>$ ${(item.price * item.quantity).toFixed(2)}</span>
         `;
+
+    
+        div.querySelector(".decrease-btn").addEventListener("click", () => {
+            if (cart[item.id].quantity > 1) {
+                cart[item.id].quantity -= 1;
+            } else {
+                delete cart[item.id];
+            }
+            updateCartUI();
+        });
+
+     
+        div.querySelector(".increase-btn").addEventListener("click", () => {
+            cart[item.id].quantity += 1;
+            updateCartUI();
+        });
+
         cartItemsContainer.appendChild(div);
     });
 
+ 
     cartCount.textContent = totalCount;
 
-    
+
+    document.getElementById("summary-products").textContent = totalPrice.toFixed(2);
+    let shipping = totalPrice > 0 ? 30 : 0;
+    document.getElementById("summary-shipping").textContent = shipping;
+    document.getElementById("summary-total").textContent = (totalPrice + shipping).toFixed(2);
 };
+
 
 
 
@@ -99,5 +131,16 @@ document.querySelector(".products-category-buttons").addEventListener("click", (
 });
 
 fetchProducts();
+
+
+cartBtn.addEventListener("click", () => {
+    productsContainer.style.display = "none";
+    document.querySelector(".products-category-buttons").style.display = "none";
+    document.querySelector(".latest-products").style.display = "none";
+    document.querySelector(".homepage-pic").style.display = "none";
+
+    cartPage.style.display = "block";
+});
+
 
 
