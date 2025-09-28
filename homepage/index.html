@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ecommerce-website</title>
     <link rel="stylesheet" href="../style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -18,15 +20,16 @@
         </div>
 
         <nav class="nav-links">
-            <a href="../homepage/index.html" >Home</a>
-            <a href="/products.html" >Products</a>
+            <a href="../homepage/index.html">Home</a>
+            <a href="/products.html">Products</a>
             <a href="/about.html">About</a>
-            <a href="#">Contact</a>
+            <a href="/contact.html">Contact</a>
         </nav>
         <div class="header-buttons">
             <button class="login-btn"><i class="fa-solid fa-right-to-bracket"></i> Login</button>
             <button class="register-btn"><i class="fa-solid fa-user-plus"></i> Register</button>
-            <button id="cart-btn"><i class="fa-solid fa-cart-shopping"></i> cart (<span id="cart-count">0</span>)</button>
+            <button id="cart-btn"><i class="fa-solid fa-cart-shopping"></i> cart (<span
+                    id="cart-count">0</span>)</button>
 
         </div>
     </header>
@@ -59,23 +62,40 @@
 
     <div id="products-container"></div>
 
-  <div id="cart-page" style="display:none;">
-    <h2 class="cart-heading">Cart</h2>
-    <div class="cart-layout">
-        <div id="cart-items" class="cart-items"></div>
-        <div id="order-summary" class="order-summary">
-            <h3>Order Summary</h3>
-            <p>Products: $<span id="summary-products">0</span></p>
-            <p>Shipping: $<span id="summary-shipping">30</span></p>
-            <p><strong>Total amount: $<span id="summary-total">0</span></strong></p>
-            <button class="checkout-btn">Go to checkout</button>
+    <div id="cart-page" style="display:none;">
+        <h2 class="cart-heading">Cart</h2>
+        <hr>
+        <div id="empty-cart-message" style="display:none;">
+            <p>Your Cart is Empty</p>
+            <button onclick="continueShopping()"><i class="fa-solid fa-arrow-left"></i> Continue Shopping</button>
+        </div>
+        <div class="cart-layout">
+            <div id="cart-items" class="cart-items"></div>
+            <div id="order-summary" class="order-summary">
+                <h3>Order Summary</h3>
+                <div class="summary-row">
+                    <span>Products (<span id="summary-count">0</span>)</span>
+                    <span>$<span id="summary-products">0</span></span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span>$<span id="summary-shipping">0</span></span>
+                </div>
+                <hr>
+                <div class="summary-row total">
+                    <strong>Total amount</strong>
+                    <strong>$<span id="summary-total">0</span></strong>
+                </div>
+                <button class="checkout-btn">Go to checkout</button>
+            </div>
         </div>
     </div>
-  </div>
 
 
 
-    <p class="footer-caption">Made with <span>&#10084;&#65039;</span> by Devasani Anjili with the guidance of<strong>AchieversIT</strong></p>
+
+    <p class="footer-caption">Made with <span>&#10084;&#65039;</span> by Devasani Anjili with the guidance
+        of<strong>AchieversIT</strong></p>
     <script src="/app.js"></script>
 </body>
 
