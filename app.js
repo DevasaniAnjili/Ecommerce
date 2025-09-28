@@ -41,8 +41,6 @@ const displayProducts = (products) => {
 
 
 
-
-
 const addToCart = (product) => {
     if (cart[product.id]) {
         cart[product.id].quantity += 1;
@@ -65,19 +63,21 @@ const updateCartUI = () => {
         div.classList.add("cart-item");
 
         div.innerHTML = `
-            <div class="cart-item-info">
-                <img src="${item.image}" alt="${item.title}">
-                <span>${item.title}</span>
-            </div>
-            <div class="cart-item-quantity">
-                <button class="decrease-btn">-</button>
-                <span>${item.quantity}</span>
-                <button class="increase-btn">+</button>
-            </div>
-            <span>$ ${(item.price * item.quantity).toFixed(2)}</span>
-        `;
+    <div class="cart-item-info">
+        <img src="${item.image}" alt="${item.title}">
+        <span>${item.title}</span>
+    </div>
+    <div class="cart-item-details">
+        <div class="cart-item-quantity">
+            <button class="decrease-btn">-</button>
+            <span>${item.quantity}</span>
+            <button class="increase-btn">+</button>
+        </div>
+        <p class="cart-item-total">${item.quantity} × $${item.price.toFixed(2)}</p>
+    </div>
+`;
 
-    
+
         div.querySelector(".decrease-btn").addEventListener("click", () => {
             if (cart[item.id].quantity > 1) {
                 cart[item.id].quantity -= 1;
@@ -87,7 +87,7 @@ const updateCartUI = () => {
             updateCartUI();
         });
 
-     
+
         div.querySelector(".increase-btn").addEventListener("click", () => {
             cart[item.id].quantity += 1;
             updateCartUI();
@@ -96,14 +96,24 @@ const updateCartUI = () => {
         cartItemsContainer.appendChild(div);
     });
 
- 
+
     cartCount.textContent = totalCount;
 
 
+    document.getElementById("summary-count").textContent = totalCount;
     document.getElementById("summary-products").textContent = totalPrice.toFixed(2);
     let shipping = totalPrice > 0 ? 30 : 0;
     document.getElementById("summary-shipping").textContent = shipping;
     document.getElementById("summary-total").textContent = (totalPrice + shipping).toFixed(2);
+
+    if (totalCount === 0) {
+        document.getElementById("empty-cart-message").style.display = "block";
+        document.querySelector(".cart-layout").style.display = "none";
+    } else {
+        document.getElementById("empty-cart-message").style.display = "none";
+        document.querySelector(".cart-layout").style.display = "flex";
+    }
+
 };
 
 
@@ -111,20 +121,20 @@ const updateCartUI = () => {
 
 
 document.querySelector(".products-category-buttons").addEventListener("click", (e) => {
-    if (e.target.tagName !== "BUTTON") return; 
+    if (e.target.tagName !== "BUTTON") return;
 
     if (e.target.classList.contains("category-all-btn")) {
         displayProducts(allProducts);
-    } 
+    }
     else if (e.target.classList.contains("category-mens-btn")) {
         displayProducts(allProducts.filter(p => p.category === "men's clothing"));
-    } 
+    }
     else if (e.target.classList.contains("category-womens-btn")) {
         displayProducts(allProducts.filter(p => p.category === "women's clothing"));
-    } 
+    }
     else if (e.target.classList.contains("category-jewelery-btn")) {
         displayProducts(allProducts.filter(p => p.category === "jewelery"));
-    } 
+    }
     else if (e.target.classList.contains("category-electronics-btn")) {
         displayProducts(allProducts.filter(p => p.category === "electronics"));
     }
@@ -140,7 +150,24 @@ cartBtn.addEventListener("click", () => {
     document.querySelector(".homepage-pic").style.display = "none";
 
     cartPage.style.display = "block";
+
+    updateCartUI();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+    const loginBtn = document.querySelector(".login-btn");
+    if (loginBtn) {
+        loginBtn.addEventListener("click", () => {
+            window.location.href = "/login.html";
+        });
+    }
+
+    const registerBtn = document.querySelector(".register-btn");
+    if (registerBtn) {
+        registerBtn.addEventListener("click", () => {
+            window.location.href = "/register.html";
+        });
+    }
+});
 
 
