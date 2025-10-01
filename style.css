@@ -1,28 +1,14 @@
 body{
     font-family:'Segoe UI', Tahoma,  Verdana, sans-serif;
-    padding-top: 80px;
-    box-sizing: border-box;
-    margin: 0;
-}
-@media (max-width: 480px) {
-    body {
-        padding-top: 150px; 
-    }
 }
 header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0;
     padding: 10px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+    width: 97%;
     background-color: white;
-    z-index: 1000;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    
 }
 header .logo{
     font-weight: bold;
@@ -55,10 +41,7 @@ header .logo{
 
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 120px; 
-    }
-
+  
     header {
         flex-wrap: wrap;
         padding: 15px 20px;
@@ -86,10 +69,7 @@ header .logo{
 }
 
 @media (max-width: 480px) {
-    body {
-        padding-top: 150px; 
-    }
-
+  
     header {
         flex-direction: column;
         align-items: flex-start;
